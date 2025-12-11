@@ -62,9 +62,6 @@ BO_ 1360 LeftHandle_550: 6 HL
   SG_ Trip: 5|1@1+ (1,0) [0|1] "" HL
   SG_ Voice: 8|1@1+ (1,0) [0|1] "" HL
   SG_ Switch_4_Way: 24|5@1+ (1,0) [0|32] "Four Way Switch" SW4WAY 
-  SG_ Cruise_Res_plus: 32|1@1+ (1,0) [0|1] "" HL
-  SG_ Cruise_Set_minus: 35|1@1+ (1,0) [0|1] "" HL
-  SG_ Cruise_Push: 34|1@1+ (1,0) [0|1] "" HL
   SG_ Cruise_3_Way: 40|5@1+ (1,0) [0|32] "" HL
 
 BO_ 1392 RightHandle_570: 6 HR 
