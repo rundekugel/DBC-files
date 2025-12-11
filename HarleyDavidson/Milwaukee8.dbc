@@ -60,7 +60,9 @@ BO_ 1392 RightHandle_570: 6 HR
   SG_ Switch_4_Way: 24|5@1+ (1,0) [0|32] "Four Way Switch" SW4WAY  
   SG_ PTT_3_Way: 32|5@1+ (1,0) [0|32] "3 Way Switch" SW4WAY  
    
-
+BO_ 1328 Unknown_530: 8 IO
+  SG_ Perhaps_Brake_Switch_Rear: 18|1@1+ (1,0) [0|1] "?Brake Rear?" IO
+  
 CM_ BU_ HR "Right Handle with Buttons";
 CM_ BU_ HL "Left Handle with Buttons";
 
