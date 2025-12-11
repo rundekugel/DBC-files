@@ -1,0 +1,122 @@
+VERSION ""
+
+
+NS_ :
+  BA_
+  BA_DEF_
+  BA_DEF_DEF_
+  BA_DEF_DEF_REL_
+  BA_DEF_REL_
+  BA_DEF_SGTYPE_
+  BA_REL_
+  BA_SGTYPE_
+  BO_TX_BU_
+  BU_BO_REL_
+  BU_EV_REL_
+  BU_SG_REL_
+  CAT_
+  CAT_DEF_
+  CM_
+  ENVVAR_DATA_
+  EV_DATA_
+  FILTER
+  NS_DESC_
+  SGTYPE_
+  SGTYPE_VAL_
+  SG_MUL_VAL_
+  SIGTYPE_VALTYPE_
+  SIG_GROUP_
+  SIG_TYPE_REF_
+  SIG_VALTYPE_
+  VAL_
+  VAL_TABLE_
+
+
+BS_:
+
+BU_: DBG DRIVER IO MOTOR SENSOR HL HR
+
+
+BO_ 224 RTC: 8 DBG
+SG_ Seconds : 7|64@0+ (0.001,0) [0|1.84467440737096E016] "" DBG
+
+BO_ 187 CanIO_set: 8 DBG
+SG_ Cfgread: 1|8@0+ (1,0) [0|255] "" DBG
+
+BO_ 183 CanIO_get: 8 DBG
+SG_ cfgret: 0|8@0+ (1,0) [0|255] "" DBG
+SG_ cfg_pos: 8|8@0+ (1,0) [0|255] "" DBG
+SG_ cfg_d: 16|64@0+ (1,0) [0|128000] "" DBG
+
+BO_ 1328 Light: 8 DBG
+SG_ Neutral: 0|8@0+ (1,0) [0|255] "" DBG
+SG_ b2: 8|8@0+ (1,0) [0|255] "" DBG
+
+BO_ 1360 LeftHandle: 6 HL
+  SG_ ClutchPressed: 0|1@1+ (1,0) [0|1] "" HL
+  SG_ HighBeam: 4|1@1+ (1,0) [0|1] "" HL
+  SG_ LowBeam: 5|1@1+ (1,0) [0|1] "" HL
+  SG_ Light_enum : 4|2@1+ (2,0) [0|2] "" HL
+  SG_ Horn: 0|1@1+ (1,0) [0|1] "" HL
+  SG_ Pass: 1|1@1+ (1,0) [0|1] "" HL
+  SG_ Trip: 5|1@1+ (1,0) [0|1] "" HL
+  SG_ ControllerUp: 16|1@1+ (1,0) [0|1] "" HL
+  SG_ ControllerLeft: 17|1@1+ (1,0) [0|1] "" HL
+  SG_ ControllerRight: 19|1@1+ (1,0) [0|1] "" HL
+  SG_ ControllerDown: 20|1@1+ (1,0) [0|1] "" HL
+  SG_ ControllerHome: 18|1@1+ (1,0) [0|1] "" HL
+  SG_ Cruise_Res_plus: 32|1@1+ (1,0) [0|1] "" HL
+  SG_ Cruise_Set_minus: 35|1@1+ (1,0) [0|1] "" HL
+  SG_ Cruise_Push: 34|1@1+ (1,0) [0|1] "" HL
+
+
+BO_ 1392 RightHandle: 6 HR
+  SG_ Starter: 1|1@1+ (1,0) [0|1] "" HL
+  SG_ Ignition: 3|1@1+ (1,0) [0|1] "" HL
+  SG_ Indicator_Left: 5|1@1+ (1,0) [0|1] "" HL
+  SG_ Indicator_Right: 4|1@1+ (1,0) [0|1] "" HL
+  SG_ Brake: 7|1@1+ (1,0) [0|1] "" HR
+  SG_ _i_: 8|1@1+ (1,0) [0|1] "" HR
+  SG_ AntiHazardFlasher: 14|1@1+ (1,0) [0|1] "hazard-warning signal flasher" HR
+  SG_ ControllerUp: 16|1@1+ (1,0) [0|1] "" HR
+  SG_ ControllerLeft: 17|1@1+ (1,0) [0|1] "" HR
+  SG_ ControllerRight: 19|1@1+ (1,0) [0|1] "" HR
+  SG_ ControllerDown: 20|1@1+ (1,0) [0|1] "" HR
+  SG_ ControllerHome: 18|1@1+ (1,0) [0|1] "" HR
+
+BO_ 100 DRIVER_HEARTBEAT: 1 DRIVER
+ SG_ DRIVER_HEARTBEAT_cmd : 0|8@1+ (1,0) [0|0] "" SENSOR,MOTOR
+
+BO_ 500 IO_DEBUG: 4 IO
+ SG_ IO_DEBUG_test_unsigned : 0|8@1+ (1,0) [0|0] "" DBG
+ SG_ IO_DEBUG_test_enum : 8|8@1+ (1,0) [0|0] "" DBG
+ SG_ IO_DEBUG_test_signed : 16|8@1- (1,0) [0|0] "" DBG
+ SG_ IO_DEBUG_test_float : 24|8@1+ (0.5,0) [0|0] "" DBG
+
+CM_ BU_ HL "Left Handle with Buttons";
+CM_ BU_ HR "Right Handle with Buttons";
+CM_ BO_ 1328  "Light debug";
+
+BA_DEF_ "BusType" STRING ;
+BA_DEF_ BO_ "GenMsgCycleTime" INT 0 0;
+BA_DEF_ SG_ "FieldType" STRING ;
+
+BA_DEF_DEF_ "BusType" "CAN";
+BA_DEF_DEF_ "FieldType" "";
+BA_DEF_DEF_ "GenMsgCycleTime" 0;
+
+BA_ "GenMsgCycleTime" BO_ 100 1000;
+BA_ "GenMsgCycleTime" BO_ 500 100;
+BA_ "GenMsgCycleTime" BO_ 101 100;
+BA_ "GenMsgCycleTime" BO_ 400 100;
+BA_ "GenMsgCycleTime" BO_ 200 100;
+BA_ "FieldType" SG_ 100 DRIVER_HEARTBEAT_cmd "DRIVER_HEARTBEAT_cmd";
+BA_ "FieldType" SG_ 500 IO_DEBUG_test_enum "IO_DEBUG_test_enum";
+
+BA_ "FieldType" SG_ 1329 Light_enum "Light_enum";
+
+
+VAL_ 100 DRIVER_HEARTBEAT_cmd 2 "DRIVER_HEARTBEAT_cmd_REBOOT" 1 "DRIVER_HEARTBEAT_cmd_SYNC" 0 "DRIVER_HEARTBEAT_cmd_NOOP" ;
+VAL_ 500 IO_DEBUG_test_enum 2 "IO_DEBUG_test2_enum_two" 1 "IO_DEBUG_test2_enum_one" ;
+
+VAL_ 1329 Light_enum 0 "LowBeam" 1 "HighBeam";
