@@ -37,21 +37,6 @@ BS_:
 BU_: DBG DRIVER IO MOTOR SENSOR HL HR SW4WAY
 
 
-BO_ 224 RTC: 8 DBG
-SG_ Seconds : 7|64@0+ (0.001,0) [0|1.84467440737096E016] "" DBG
-
-BO_ 187 CanIO_set: 8 DBG
-SG_ Cfgread: 1|8@0+ (1,0) [0|255] "" DBG
-
-BO_ 183 CanIO_get: 8 DBG
-SG_ cfgret: 0|8@0+ (1,0) [0|255] "" DBG
-SG_ cfg_pos: 8|8@0+ (1,0) [0|255] "" DBG
-SG_ cfg_d: 16|64@0+ (1,0) [0|128000] "" DBG
-
-BO_ 1328 Light: 8 DBG
-SG_ Neutral: 0|8@0+ (1,0) [0|255] "" DBG
-SG_ b2: 8|8@0+ (1,0) [0|255] "" DBG
-
 BO_ 1360 LeftHandle_550: 6 HL 
   SG_ ClutchPressed: 0|1@1+ (1,0) [0|1] "" HL
   SG_ HighBeam: 3|1@1+ (1,0) [0|1] "" HL
