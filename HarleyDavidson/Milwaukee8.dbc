@@ -1,4 +1,4 @@
-VERSION ""
+VERSION "0.2"
 
 
 NS_ :
@@ -34,7 +34,7 @@ NS_ :
 
 BS_:
 
-BU_: DBG DRIVER IO MOTOR SENSOR HL HR
+BU_: DBG DRIVER IO MOTOR SENSOR HL HR SW4WAY
 
 
 BO_ 224 RTC: 8 DBG
@@ -54,21 +54,17 @@ SG_ b2: 8|8@0+ (1,0) [0|255] "" DBG
 
 BO_ 1360 LeftHandle: 6 HL
   SG_ ClutchPressed: 0|1@1+ (1,0) [0|1] "" HL
-  SG_ HighBeam: 4|1@1+ (1,0) [0|1] "" HL
-  SG_ LowBeam: 5|1@1+ (1,0) [0|1] "" HL
-  SG_ Light_enum : 4|2@1+ (2,0) [0|2] "" HL
+  SG_ HighBeam: 3|1@1+ (1,0) [0|1] "" HL
+  SG_ LowBeam: 4|1@1+ (1,0) [0|1] "" HL
+  SG_ Light_enum : 3|2@1+ (1,0) [0|2] "invisible unit" HL
   SG_ Horn: 0|1@1+ (1,0) [0|1] "" HL
   SG_ Pass: 1|1@1+ (1,0) [0|1] "" HL
   SG_ Trip: 5|1@1+ (1,0) [0|1] "" HL
-  SG_ ControllerUp: 16|1@1+ (1,0) [0|1] "" HL
-  SG_ ControllerLeft: 17|1@1+ (1,0) [0|1] "" HL
-  SG_ ControllerRight: 19|1@1+ (1,0) [0|1] "" HL
-  SG_ ControllerDown: 20|1@1+ (1,0) [0|1] "" HL
-  SG_ ControllerHome: 18|1@1+ (1,0) [0|1] "" HL
+  SG_ Voice: 8|1@1+ (1,0) [0|1] "" HL
+  SG_ Switch_4_Way: 24|5@1+ (1,0) [0|32] "Four Way Switch" SW4WAY 
   SG_ Cruise_Res_plus: 32|1@1+ (1,0) [0|1] "" HL
   SG_ Cruise_Set_minus: 35|1@1+ (1,0) [0|1] "" HL
   SG_ Cruise_Push: 34|1@1+ (1,0) [0|1] "" HL
-
 
 BO_ 1392 RightHandle: 6 HR
   SG_ Starter: 1|1@1+ (1,0) [0|1] "" HL
@@ -78,11 +74,7 @@ BO_ 1392 RightHandle: 6 HR
   SG_ Brake: 7|1@1+ (1,0) [0|1] "" HR
   SG_ _i_: 8|1@1+ (1,0) [0|1] "" HR
   SG_ AntiHazardFlasher: 14|1@1+ (1,0) [0|1] "hazard-warning signal flasher" HR
-  SG_ ControllerUp: 16|1@1+ (1,0) [0|1] "" HR
-  SG_ ControllerLeft: 17|1@1+ (1,0) [0|1] "" HR
-  SG_ ControllerRight: 19|1@1+ (1,0) [0|1] "" HR
-  SG_ ControllerDown: 20|1@1+ (1,0) [0|1] "" HR
-  SG_ ControllerHome: 18|1@1+ (1,0) [0|1] "" HR
+  SG_ Switch_4_Way: 24|5@1+ (1,0) [0|32] "Four Way Switch" SW4WAY   
 
 BO_ 100 DRIVER_HEARTBEAT: 1 DRIVER
  SG_ DRIVER_HEARTBEAT_cmd : 0|8@1+ (1,0) [0|0] "" SENSOR,MOTOR
@@ -93,9 +85,10 @@ BO_ 500 IO_DEBUG: 4 IO
  SG_ IO_DEBUG_test_signed : 16|8@1- (1,0) [0|0] "" DBG
  SG_ IO_DEBUG_test_float : 24|8@1+ (0.5,0) [0|0] "" DBG
 
-CM_ BU_ HL "Left Handle with Buttons";
 CM_ BU_ HR "Right Handle with Buttons";
-CM_ BO_ 1328  "Light debug";
+CM_ BU_ HL "Left Handle with Buttons";
+
+CM_ "This is a comment. All data is not relyable! ";
 
 BA_DEF_ "BusType" STRING ;
 BA_DEF_ BO_ "GenMsgCycleTime" INT 0 0;
@@ -105,18 +98,6 @@ BA_DEF_DEF_ "BusType" "CAN";
 BA_DEF_DEF_ "FieldType" "";
 BA_DEF_DEF_ "GenMsgCycleTime" 0;
 
-BA_ "GenMsgCycleTime" BO_ 100 1000;
-BA_ "GenMsgCycleTime" BO_ 500 100;
-BA_ "GenMsgCycleTime" BO_ 101 100;
-BA_ "GenMsgCycleTime" BO_ 400 100;
-BA_ "GenMsgCycleTime" BO_ 200 100;
-BA_ "FieldType" SG_ 100 DRIVER_HEARTBEAT_cmd "DRIVER_HEARTBEAT_cmd";
-BA_ "FieldType" SG_ 500 IO_DEBUG_test_enum "IO_DEBUG_test_enum";
-
-BA_ "FieldType" SG_ 1329 Light_enum "Light_enum";
-
-
-VAL_ 100 DRIVER_HEARTBEAT_cmd 2 "DRIVER_HEARTBEAT_cmd_REBOOT" 1 "DRIVER_HEARTBEAT_cmd_SYNC" 0 "DRIVER_HEARTBEAT_cmd_NOOP" ;
-VAL_ 500 IO_DEBUG_test_enum 2 "IO_DEBUG_test2_enum_two" 1 "IO_DEBUG_test2_enum_one" ;
-
-VAL_ 1329 Light_enum 0 "LowBeam" 1 "HighBeam";
+VAL_ 1360 Light_enum 0 "None" 2 "LowBeam" 1 "HighBeam";
+VAL_ 1360 Switch_4_Way 0 "None" 1 "Up" 2 "Left" 4 "Push" 8 "Right" 16 "Down" ;
+VAL_ 1392 Switch_4_Way 0 "None" 1 "Up" 2 "Left" 4 "Push" 8 "Right" 16 "Down" ;
