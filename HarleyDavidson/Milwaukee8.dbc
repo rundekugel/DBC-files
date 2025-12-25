@@ -39,11 +39,9 @@ BU_: DBG DRIVER IO MOTOR SENSOR HL HR SW4WAY
 
 BO_ 1360 LeftHandle_550: 6 HL 
   SG_ ClutchPressed: 0|1@1+ (1,0) [0|1] "" HL
-  SG_ HighBeam: 3|1@1+ (1,0) [0|1] "" HL
-  SG_ LowBeam: 4|1@1+ (1,0) [0|1] "" HL
   SG_ Light_enum : 3|2@1+ (1,0) [0|2] "invisible unit" HL
-  SG_ Horn: 0|1@1+ (1,0) [0|1] "" HL
-  SG_ Pass: 1|1@1+ (1,0) [0|1] "" HL
+  SG_ Horn: 1|1@1+ (1,0) [0|1] "" HL
+  SG_ Pass: 2|1@1+ (1,0) [0|1] "" HL
   SG_ Trip: 5|1@1+ (1,0) [0|1] "" HL
   SG_ Voice: 8|1@1+ (1,0) [0|1] "" HL
   SG_ Switch_4_Way: 24|5@1+ (1,0) [0|32] "Four Way Switch" SW4WAY 
